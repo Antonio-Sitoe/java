@@ -1,23 +1,20 @@
 import java.util.ArrayList;
 
 public class Main {
-   public ArrayList<Pessoa> listPessoa = new ArrayList<>();
-    public void retornaFilhos(){
 
-    }
     public static void main(String[] args) {
         // TODO Auto-generated method stub
-        Pessoa m1= new Pessoa("Maroa", 23, "M", null, null);
-        Pessoa p1= new Pessoa("Nurdine", 23, "F", null, null);
+        Pessoa m1= new Pessoa("Maria", 23, "M", null, null);
+        Pessoa p1= new Pessoa("Antonio", 23, "F", null, null);
 
         Pessoa p4= new Pessoa("Joao", 19, "M", p1,m1);
-        Pessoa m2= new Pessoa("Nana", 30, "F",p1 , m1);
-        Pessoa p2= new Pessoa("Alberto", 21, "M", p1, null);
+        Pessoa m2= new Pessoa("Narcia", 30, "F",p1 , m1);
+        Pessoa p2= new Pessoa("Delcio", 21, "M", p1, null);
 
         Pessoa m3= new Pessoa("Yula", 23, "F", null, null);
 
-        Pessoa p5= new Pessoa("Raul", 29, "M", p4, m3);
-        Pessoa p3= new Pessoa("Pedro", 23, "M", p2, m2);
+        Pessoa p5= new Pessoa("Frede", 29, "M", p4, m3);
+        Pessoa p3= new Pessoa("Edmilson", 23, "M", p2, m2);
 
 
         Pessoa m4= new Pessoa("Rita", 23, "M", null, m2);
@@ -32,7 +29,8 @@ public class Main {
         pessoa.add(m3);
         pessoa.add(m4);
 
-        Pessoa.mostrarFilhos(pessoa, p1);
+        Pessoa.mostrarFilhos(pessoa, p4);
+        Pessoa.encontreAvo(p3);
     }
 
 

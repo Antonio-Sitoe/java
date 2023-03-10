@@ -5,7 +5,7 @@ public class Pessoa {
 	private int idade;
     public Pessoa pai;
     public Pessoa mae;
-	private ArrayList<String> listFilhos= new ArrayList<>();
+	private ArrayList<Pessoa> listFilhos= new ArrayList<Pessoa>();
     
     public Pessoa(String nome, int idade, String genero,Pessoa pai,Pessoa mae) {
     	this.nome=nome;
@@ -55,11 +55,11 @@ public class Pessoa {
 		this.mae = mae;
 	}
 
-	public  ArrayList<String> getListNomes(){
+	public  ArrayList<Pessoa> getListNomes(){
 		return listFilhos;
 	}
-	public  ArrayList<String> setListNomes(String nome){
-		listFilhos.add(nome);
+	public  ArrayList<Pessoa> setListNomes(Pessoa filho){
+		listFilhos.add(filho);
 		return listFilhos;
 	}
 
@@ -70,13 +70,24 @@ public class Pessoa {
 	}
      public static void mostrarFilhos(ArrayList<Pessoa> pessoas, Pessoa pai) {
 		for(Pessoa pessoa:pessoas ){
-
-			if(pessoa.getPai() != null){
-				if(pessoa.getPai().getNome() == pai.getPai().getNome()){
-					System.out.println(pessoa.getNome());
+				if(!(pessoa.getPai() == null)){
+					if(pessoa.getPai().getNome().equals(pai.getNome()) ){
+						System.out.println(pessoa.getNome());
+					}
 				}
-			}
 		}
 	 }
+	public static void encontreAvo(Pessoa pai) {
+
+		if(!(pai.getMae() == null)){
+			if(!(pai.getMae().getPai() == null)){
+				System.out.println(pai.getMae().getPai().getNome());
+			}
+			if(!(pai.getMae().getMae() == null)){
+				System.out.println(pai.getMae().getMae().getNome());
+			}
+		}
+
+	}
 	
 }
