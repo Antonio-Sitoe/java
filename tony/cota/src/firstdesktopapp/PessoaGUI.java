@@ -43,7 +43,6 @@ public class PessoaGUI extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -57,38 +56,25 @@ public class PessoaGUI extends javax.swing.JFrame {
         BtnRetornaFIlhos = new javax.swing.JButton();
         ComboAvos = new javax.swing.JComboBox<>();
         BtnRetornaAvos = new javax.swing.JButton();
-        ComboGenero = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        ListArea = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(38, 38, 38));
 
-        jLabel1.setFont(new java.awt.Font("Noto Mono", 0, 18)); // NOI18N
         jLabel1.setText("Nome");
 
-        jLabel2.setFont(new java.awt.Font("JetBrains Mono", 0, 18)); // NOI18N
         jLabel2.setText("Idade");
 
-        jLabel8.setFont(new java.awt.Font("JetBrains Mono", 0, 18)); // NOI18N
-        jLabel8.setText("Genero");
-
-        jLabel3.setFont(new java.awt.Font("JetBrains Mono", 0, 18)); // NOI18N
         jLabel3.setText("Pai");
 
-        jLabel4.setFont(new java.awt.Font("JetBrains Mono", 0, 18)); // NOI18N
         jLabel4.setText("Mae");
 
-        jLabel5.setFont(new java.awt.Font("JetBrains Mono", 0, 18)); // NOI18N
         jLabel5.setText("Mostra filhos");
 
-        jLabel6.setFont(new java.awt.Font("JetBrains Mono", 0, 18)); // NOI18N
         jLabel6.setText("Mostra Avos Maternos");
 
         TxtNome.setFont(new java.awt.Font("JetBrains Mono Medium", 0, 13)); // NOI18N
-        TxtNome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TxtNomeActionPerformed(evt);
-            }
-        });
 
         TxtIdade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,20 +82,16 @@ public class PessoaGUI extends javax.swing.JFrame {
             }
         });
 
-        ComboPai.setFont(new java.awt.Font("JetBrains Mono", 0, 14)); // NOI18N
-        ComboPai.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sempai" }));
+        ComboPai.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "selecionar" }));
         ComboPai.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ComboPaiActionPerformed(evt);
             }
         });
 
-        ComboMae.setFont(new java.awt.Font("JetBrains Mono", 0, 14)); // NOI18N
-        ComboMae.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SemMae" }));
+        ComboMae.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "selecionar" }));
 
-        AddPessoa.setBackground(new java.awt.Color(8, 130, 247));
-        AddPessoa.setFont(new java.awt.Font("JetBrains Mono ExtraBold", 0, 14)); // NOI18N
-        AddPessoa.setForeground(new java.awt.Color(255, 255, 255));
+        AddPessoa.setForeground(new java.awt.Color(0, 0, 1));
         AddPessoa.setText("Adicionar Pessoa");
         AddPessoa.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Fira Sans", 0, 13), new java.awt.Color(8, 130, 247))); // NOI18N
         AddPessoa.setBorderPainted(false);
@@ -121,10 +103,13 @@ public class PessoaGUI extends javax.swing.JFrame {
         });
 
         ComboFilhos.setFont(new java.awt.Font("JetBrains Mono", 0, 14)); // NOI18N
+        ComboFilhos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboFilhosActionPerformed(evt);
+            }
+        });
 
-        BtnRetornaFIlhos.setBackground(new java.awt.Color(8, 130, 247));
-        BtnRetornaFIlhos.setFont(new java.awt.Font("JetBrains Mono ExtraBold", 0, 14)); // NOI18N
-        BtnRetornaFIlhos.setForeground(new java.awt.Color(255, 255, 255));
+        BtnRetornaFIlhos.setForeground(new java.awt.Color(0, 0, 1));
         BtnRetornaFIlhos.setText("Retorna Filhos");
         BtnRetornaFIlhos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnRetornaFIlhos.addActionListener(new java.awt.event.ActionListener() {
@@ -135,9 +120,7 @@ public class PessoaGUI extends javax.swing.JFrame {
 
         ComboAvos.setFont(new java.awt.Font("JetBrains Mono", 0, 14)); // NOI18N
 
-        BtnRetornaAvos.setBackground(new java.awt.Color(8, 130, 247));
-        BtnRetornaAvos.setFont(new java.awt.Font("JetBrains Mono ExtraBold", 0, 14)); // NOI18N
-        BtnRetornaAvos.setForeground(new java.awt.Color(255, 255, 255));
+        BtnRetornaAvos.setForeground(new java.awt.Color(0, 0, 1));
         BtnRetornaAvos.setText("Retorna Avos Maternos");
         BtnRetornaAvos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         BtnRetornaAvos.addActionListener(new java.awt.event.ActionListener() {
@@ -146,13 +129,9 @@ public class PessoaGUI extends javax.swing.JFrame {
             }
         });
 
-        ComboGenero.setFont(new java.awt.Font("JetBrains Mono", 0, 14)); // NOI18N
-        ComboGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "M", "F" }));
-        ComboGenero.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ComboGeneroActionPerformed(evt);
-            }
-        });
+        ListArea.setColumns(20);
+        ListArea.setRows(5);
+        jScrollPane1.setViewportView(ListArea);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -162,70 +141,70 @@ public class PessoaGUI extends javax.swing.JFrame {
                 .addGap(61, 61, 61)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(TxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
-                    .addComponent(TxtIdade)
-                    .addComponent(ComboPai, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ComboMae, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(AddPessoa, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ComboGenero, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(142, 142, 142)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(ComboAvos, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(BtnRetornaAvos, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(BtnRetornaFIlhos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(ComboFilhos, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(65, Short.MAX_VALUE))
+                    .addComponent(ComboMae, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ComboPai, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(TxtIdade)
+                    .addComponent(TxtNome)
+                    .addComponent(AddPessoa, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE))
+                .addGap(44, 44, 44)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(ComboFilhos, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(BtnRetornaFIlhos, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(ComboAvos, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(BtnRetornaAvos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
+                .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(TxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(TxtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ComboFilhos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(BtnRetornaFIlhos, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ComboFilhos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BtnRetornaFIlhos, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ComboAvos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(12, 12, 12)
-                        .addComponent(BtnRetornaAvos, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(ComboAvos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(BtnRetornaAvos, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(TxtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(46, 46, 46)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TxtIdade, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ComboGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(17, 17, 17)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ComboPai, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(ComboMae, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(AddPessoa, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(239, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(AddPessoa, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(124, Short.MAX_VALUE))
         );
 
         pack();
@@ -242,7 +221,7 @@ public class PessoaGUI extends javax.swing.JFrame {
       
       String nomePai = (String) ComboPai.getSelectedItem();
       String nomeMae = (String) ComboMae.getSelectedItem();
-      String genero = (String) ComboGenero.getSelectedItem();
+      
       
       Pessoa pessoaQuePodeSerPai=null;
       Pessoa pessoaQuePodeSerMae=null;
@@ -259,20 +238,17 @@ public class PessoaGUI extends javax.swing.JFrame {
       }
     
               
-     Pessoa pessoa= new Pessoa(nome,idade, genero,pessoaQuePodeSerPai, pessoaQuePodeSerMae);
+     Pessoa pessoa= new Pessoa(nome,idade, pessoaQuePodeSerPai, pessoaQuePodeSerMae);
      ListaDePessoas.add(pessoa);
 
       
-      if(genero.equals("M")){
-         ComboPai.addItem(nome);
-      } else {
-         ComboMae.addItem(nome);
-      }
-      
+   
+       ComboMae.addItem(nome);
+       ComboPai.addItem(nome);
       ComboAvos.addItem(nome);
       ComboFilhos.addItem(nome);
       TxtNome.setText("");
-//      TxtIdade.setText("");
+      TxtIdade.setText("");
       
     }//GEN-LAST:event_AddPessoaActionPerformed
 
@@ -301,69 +277,53 @@ public class PessoaGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         String nome = (String) ComboFilhos.getSelectedItem();
         
-        DefaultListModel<String> model = new DefaultListModel<>();
+//        DefaultListModel<String> model = new DefaultListModel<>();
         for(Pessoa pessoa:ListaDePessoas ){
 		if(!(pessoa.getPai() == null)){
 		   if(pessoa.getPai().getNome().equals(nome) ){
-			 model.addElement(pessoa.getNome());
+			ListArea.append(pessoa.getNome()+"\n");
 		      }
 		  } 
                  if(!(pessoa.getMae()== null)){
 		   if(pessoa.getMae().getNome().equals(nome) ){
-			 model.addElement(pessoa.getNome());
+			 
+                         ListArea.append(pessoa.getNome()+"\n");
 		      }
 		  } 
         }
-    
-        
-        JList<String> itemList = new JList<>(model);
-        
-        JScrollPane scrollPane = new JScrollPane(itemList);
-        JFrame frame = new JFrame("Exemplo de JList");
-        frame.add(scrollPane);
-        frame.setSize(300, 200);
-        frame.setVisible(true);
+
     }//GEN-LAST:event_BtnRetornaFIlhosActionPerformed
 
     private void BtnRetornaAvosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnRetornaAvosActionPerformed
         // TODO add your handling code here:
         String nome = (String) ComboAvos.getSelectedItem();  
         
-        DefaultListModel<String> model = new DefaultListModel<>();
+      ListArea.setText("");
         
         for(Pessoa pessoa:ListaDePessoas ){
          if(pessoa.getNome().equals(nome)){
 	   if(!(pessoa.getMae() == null)){
 	     if(!(pessoa.getMae().getPai() == null)){
-                 model.addElement(pessoa.getMae().getPai().getNome());
+                   ListArea.append(pessoa.getMae().getPai().getNome()+"\n");
+                 
 	      }
 	      if(!(pessoa.getMae().getMae() == null)){
-                 model.addElement(pessoa.getMae().getMae().getNome());
+                    ListArea.append(pessoa.getMae().getMae().getNome()+"\n");
 	       }
               }
              }
            }
          
-        JList<String> itemList = new JList<>(model);
-        
-        JScrollPane scrollPane = new JScrollPane(itemList);
-        JFrame frame = new JFrame("Exemplo de JList");
-        frame.add(scrollPane);
-        frame.setSize(300, 200);
-        frame.setVisible(true);
+      
     }//GEN-LAST:event_BtnRetornaAvosActionPerformed
 
     private void ComboPaiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboPaiActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ComboPaiActionPerformed
 
-    private void ComboGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboGeneroActionPerformed
+    private void ComboFilhosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboFilhosActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_ComboGeneroActionPerformed
-
-    private void TxtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtNomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TxtNomeActionPerformed
+    }//GEN-LAST:event_ComboFilhosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -407,9 +367,9 @@ public class PessoaGUI extends javax.swing.JFrame {
     private javax.swing.JButton BtnRetornaFIlhos;
     private javax.swing.JComboBox<String> ComboAvos;
     private javax.swing.JComboBox<String> ComboFilhos;
-    private javax.swing.JComboBox<String> ComboGenero;
     private javax.swing.JComboBox<String> ComboMae;
     private javax.swing.JComboBox<String> ComboPai;
+    private javax.swing.JTextArea ListArea;
     private javax.swing.JTextField TxtIdade;
     private javax.swing.JTextField TxtNome;
     private javax.swing.JLabel jLabel1;
@@ -418,6 +378,6 @@ public class PessoaGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

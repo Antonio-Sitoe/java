@@ -8,17 +8,16 @@ package firstdesktopapp.model;
  *
  * @author antoniositoe
  */
-import java.util.ArrayList;
+
 public class Pessoa {
 	private String nome, genero;
 	private int idade;
         public Pessoa pai;
         public Pessoa mae;
     
-    public Pessoa(String nome, int idade, String genero,Pessoa pai,Pessoa mae) {
+    public Pessoa(String nome, int idade, Pessoa pai,Pessoa mae) {
     	this.nome=nome;
     	this.idade=idade;
-    	this.genero=genero;
     	this.pai=pai;
     	this.mae=mae;
     }
