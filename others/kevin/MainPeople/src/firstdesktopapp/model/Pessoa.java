@@ -8,7 +8,6 @@ package firstdesktopapp.model;
  *
  * @author antoniositoe
  */
-
 public class Pessoa {
 	private String nome, genero;
 	private int idade;
@@ -18,6 +17,7 @@ public class Pessoa {
     public Pessoa(String nome, int idade, Pessoa pai,Pessoa mae) {
     	this.nome=nome;
     	this.idade=idade;
+    	
     	this.pai=pai;
     	this.mae=mae;
     }
@@ -60,14 +60,5 @@ public class Pessoa {
 
 	public void setMae(Pessoa mae) {
 		this.mae = mae;
-	}
-
-
-	@Override
-	public String toString() {
-		return "Pessoa [nome=" + nome + ", genero=" + genero + ", idade=" + idade + ", pai=" + pai + ", mae=" + mae
-				+ "]";
-	}
-
-	
+	}	
 }
