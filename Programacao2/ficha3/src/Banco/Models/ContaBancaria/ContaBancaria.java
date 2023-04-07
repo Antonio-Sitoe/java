@@ -9,4 +9,29 @@ public abstract class ContaBancaria {
 
   public abstract double Depositar(double valor);
 
+
+  public void setNumeroDaConta(int numeroDaConta){
+    this.numeroDaConta  = numeroDaConta;
+  }
+
+  public double getHistorico() {
+    return historico;
+  }
+
+  public void setHistorico(double historico) {
+    this.historico = historico;
+  }
+
+  public int getNumeroDaConta() {
+    return numeroDaConta;
+  }
+
+  public double getSaldo() {
+    return saldo;
+  }
+
+  public void setSaldo(double saldo) {
+    this.saldo = saldo;
+  }
 }
+
