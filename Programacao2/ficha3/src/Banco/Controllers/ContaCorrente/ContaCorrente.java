@@ -36,7 +36,7 @@ public class ContaCorrente extends ContaBancaria implements Imprimivel {
     if(verificaSePossoDepositar > 0){
       var valorDeDeposito =super.getSaldo()+verificaSePossoDepositar;
       super.setSaldo(valorDeDeposito);
-      System.out.println("Deposito com sucesso no valor de "+ valorDeDeposito);
+      System.out.println("Deposito com sucesso o seu saldo e "+ valorDeDeposito);
     }else {
       System.out.println("Falha ao depositar o saldo continua "+ super.getSaldo());
     }

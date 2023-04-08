@@ -16,6 +16,7 @@ public class Banco implements Imprimivel {
     public  void init(){
         Scanner nc = new Scanner(System.in);
         int escolha=0;
+        int numeroDeCanto;
         System.out.println("Bem vindo ao Banco LONGA_VIDA_AOS_DEVS");
         System.out.println("Qual operacao deseja fazer Hoje ?");
 
@@ -33,14 +34,23 @@ public class Banco implements Imprimivel {
                 case 1:
                     this.criarConta();
                     break;
+
                 case 2:
                     this.selecionarConta();
                     break;
+
                 case 3:
-                    // code block
+                    System.out.println("Digite o numero da conta");
+                    numeroDeCanto= nc.nextInt();
+
+                    var conta = this.procurarConta(numeroDeCanto);
+                    if(conta != null){
+                        this.remover(conta);
+                    }
                     break;
+
                 case 4:
-                    // code block
+                    this.mostrarDados();
                     break;
                 case 5:
                     System.out.println("Finalizou a operacao");
@@ -55,9 +65,14 @@ public class Banco implements Imprimivel {
     public void selecionarConta(){
         Scanner nc = new Scanner(System.in);
         int numero;
+
+
+
         System.out.println("Digite o numero da conta");
         numero= nc.nextInt();
+
         var conta = this.procurarConta(numero);
+
         if(conta != null){
             int escolha;
             double valor;
@@ -74,19 +89,30 @@ public class Banco implements Imprimivel {
                     valor = nc.nextDouble();
                     conta.Depositar(valor);
                     break;
+
                 case 2:
                     System.out.println("Digite o valor para levantar");
                     valor = nc.nextDouble();
                     conta.Sacar(valor);
                     break;
+
                 case 3:
                     System.out.println("Digite o valor a transferir ");
                     valor = nc.nextDouble();
                     System.out.println("Digite o numero da conta transferir ");
+                    numero = nc.nextInt();
+                    var outraConta = this.procurarConta(numero);
 
+                    if(outraConta != null){
+                        conta.transferir(valor, outraConta);
+                    }else {
+                        System.out.println("Conta inexistente");
+                    }
                     break;
+
                 case 4:
-                    // code block
+                    Relatorio relatorio = new Relatorio();
+                    relatorio.gerarRelatorio((Imprimivel) conta);
                     break;
                 case 5:
                     System.out.println("Finalizou a operacao");
@@ -141,7 +167,7 @@ public class Banco implements Imprimivel {
                break;
 
            default:
-               System.out.println("Sem nenhuma esolha");
+               System.out.println("Sem nenhuma escolha");
                break;
        }
    }
